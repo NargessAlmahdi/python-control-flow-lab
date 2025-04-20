@@ -166,21 +166,24 @@ calculate_dog_years()
 
 def weather_advice():
     # Your control flow logic goes here
+    cold = input('is it cold? yes/no:')
+    rain = input('is it raining? yes/no:')
 
-    cold = input("Is it cold? (yes/no): ")
-    raining = input("Is it raining? (yes/no): ")
+    if cold == 'yes' and rain == 'yes':
+        print('Wear a waterproof coat.')
+    elif cold == 'yes' and rain == 'no':
+        print('Wear a warm coat.')
+    elif cold == 'no' and rain == 'yes':
+        print('Carry an umbrella.')
+    elif cold == 'no' and rain == 'no':
+        print('Wear light clothing.')
 
-    if cold == "yes" and raining == "yes":
-        print("Wear a waterproof coat.")
-    elif cold == "yes" and raining == "no":
-        print("Wear a warm coat.")
-    elif cold == "no" and raining == "yes":
-        print("Carry an umbrella.")
-    else:
-        print("Wear light clothing.")
 
 # Call the function
 weather_advice()
+
+
+
 
 
 
@@ -207,11 +210,25 @@ weather_advice()
 
 
 def determine_season():
-        # Your control flow logic goes here
+    # Your control flow logic goes here
+    month = input('Enter the month of the year (Jan - Dec):')
+    date = input('Enter the day of the month:')
 
-    month = input("Enter the month of the year (Jan - Dec): ")
-    day = int(input("Enter the day of the month: "))
-
+    day = int(date)
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    
+    if (month == 'Dec and date >= 21') or (month in ['Jan', 'Feb']) or (month == 'Mar <=19'):
+        season = 'Winter' 
+    elif (month == 'Mar and date >= 20') or (month in ['Apr', 'May']) or (month == 'Jun <=20'):
+        season = 'Spring' 
+    elif (month == 'Jun and date >= 21') or (month in ['Jul', 'Aug']) or (month == 'Sep <=21'):
+        season = 'Summer' 
+    elif (month == 'Sep and date >= 22') or (month in ['Oct', 'Nov']) or (month == 'Dec <=20'):
+        season = 'Fall' 
+    else:
+        season = 'Unknown'
+            
+    print(f'{month} {date} is in {season}')
 
 # Call the function
 determine_season()
